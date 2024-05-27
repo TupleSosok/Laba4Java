@@ -3,7 +3,8 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        List<Employee> employees = CSVReader.getListFromCSVFile("foreign_names.csv");
+        CSVReader<Employee> reader = new CSVReader<Employee>();
+        List<Employee> employees = reader.getListFromCSVFile("foreign_names.csv", Employee.class);
         for(Employee i : employees){
             System.out.println(i.toString());
         }

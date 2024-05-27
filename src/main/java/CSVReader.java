@@ -7,13 +7,13 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.List;
 
-public class CSVReader {
+public class CSVReader<T> {
 
-    public static List<Employee> getListFromCSVFile(String filename) throws IOException {
+    public  List<T> getListFromCSVFile(String filename, Class<T> type) throws IOException {
 
         try(Reader reader = new BufferedReader(new FileReader("src/main/resources/" + filename))) {
-            CsvToBean<Employee> csvReader = new CsvToBeanBuilder<Employee>(reader)
-                    .withType(Employee.class)
+            CsvToBean<T> csvReader = new CsvToBeanBuilder<T>(reader)
+                    .withType(type)
                     .withSeparator(';')
                     .withIgnoreLeadingWhiteSpace(true)
                     .withIgnoreEmptyLine(true)
