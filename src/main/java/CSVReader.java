@@ -20,9 +20,5 @@ public class CSVReader<T> {
                     .build();
             return csvReader.parse();
         }
-        catch (RuntimeException e){
-            e.initCause(new IOException("Can`t open file"));
-        }
-        return null;
     }
 }
