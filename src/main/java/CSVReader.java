@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.List;
 
-public class CSVReader<T> {
+public class CSVReader {
 
-    public  List<T> getListFromCSVFile(String filename, Class<T> type) throws IOException {
+    public static <T> List<T> getListFromCSVFile(String filename, Class<T> type) throws IOException {
 
         try(Reader reader = new BufferedReader(new FileReader("src/main/resources/" + filename))) {
             CsvToBean<T> csvReader = new CsvToBeanBuilder<T>(reader)
